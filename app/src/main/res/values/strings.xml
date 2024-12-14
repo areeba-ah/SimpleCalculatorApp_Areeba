@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SimpleCalculatorApp_Areeba</string>
+    <string name="my_calculator">My Calculator - Basic</string>
+    <string name="my_calculator_advance">My Calculator - Advance</string>
+    <string name="basic_calculator_with_out_history">Switch To Basic Calculator - With Out History</string>
+    <string name="history">History</string>
+    <string name="my_calculator_basic">My Calculator - Basic</string>
+    <string name="advance_calculator_with_history">Switch To Advance Calculator - With History</string>
+    <string name="no_history">No History</string>
+    <string name="error_incomplete_expression">Error: Incomplete Expression</string>
+    <string name="error_division_by_zero">Error: Division by Zero</string>
+    <string name="no_history_available">No History Available</string>
+    <string name="history_cleared_no_history_available">History Cleared - No History Available</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="x">x</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="add">+</string>
+    <string name="ac">AC</string>
+    <string name="_0">0</string>
+    <string name="equal">=</string>
+    <string name="division">/</string>
+    <string name="minus">-</string>
+    <string name="my_calculator_splash">.My Calculator.</string>
+</resources>

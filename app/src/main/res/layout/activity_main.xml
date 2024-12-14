@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="@string/my_calculator"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:padding="18dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="22dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="#101010"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/no_history"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ScrollView
+            android:id="@+id/scrollableHistory"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/calculatorHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:lines="10"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/white" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/display"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textAlignment="textEnd"
+            android:padding="14dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/_0"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/resultDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="2dp"
+            android:padding="16dp"
+            android:text="@string/_0"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/display"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/screen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:paddingTop="18dp"
+        android:layout_marginHorizontal="6dp"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/advance_basic"
+            android:layout_width="355dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/chosen"
+            android:padding="12dp"
+            android:layout_marginHorizontal="6dp"
+            android:text="@string/advance_calculator_with_history"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="6sp"
+            android:textAllCaps="true"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            >
+
+            <Button
+                android:id="@+id/seven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_7"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/eight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/_8"
+                android:textSize="20sp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/seven"/>
+
+            <Button
+                android:id="@+id/nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_9"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/eight"
+               />
+
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/x"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_4"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/_5"
+                android:textSize="20sp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/four"/>
+
+            <Button
+                android:id="@+id/six"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_6"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/five"
+                />
+
+            <Button
+                android:id="@+id/subtract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minus"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_1"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/_2"
+                android:textSize="20sp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/one"/>
+
+            <Button
+                android:id="@+id/three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_3"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/two"
+                />
+
+
+            <Button
+                android:id="@+id/addition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentEnd="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/ac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ac"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/ac" />
+
+
+
+            <Button
+                android:id="@+id/equal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/equal"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_toEndOf="@id/zero"
+                />
+
+
+            <Button
+                android:id="@+id/divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/division"
+                android:textSize="20sp"
+                android:padding="12dp"
+                android:layout_margin="4dp"
+                android:layout_alignParentEnd="true"/>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
