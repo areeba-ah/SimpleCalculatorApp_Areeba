@@ -2,6 +2,8 @@ package com.example.simplecalculatorapp_areeba;
 import android.app.Application;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Calculator extends Application {
 
@@ -87,6 +89,30 @@ public class Calculator extends Application {
             formattedHistory.append(record).append("\n");
         }
         return formattedHistory.toString();
+    }
+
+    public String getLastIndexValue() {
+        if (!calculationHistory.isEmpty()) {
+            return calculationHistory.get(calculationHistory.size() - 1);
+        } else {
+            return "No history available";
+        }
+    }
+
+    public List<String> getLastThreeValues() {
+        int historySize = calculationHistory.size();
+        if (historySize == 0) {
+            return Collections.emptyList(); // Return an empty list if there is no history.
+        } else if (historySize <= 3) {
+            return new ArrayList<>(calculationHistory); // Return all values if the size is 3 or less.
+        } else {
+            return calculationHistory.subList(historySize - 3, historySize); // Get the last 3 values.
+        }
+    }
+
+    public String getLastTwoValuesFormatted() {
+        List<String> lastTwo = getLastThreeValues();
+        return String.join("\n", lastTwo);
     }
 
 }

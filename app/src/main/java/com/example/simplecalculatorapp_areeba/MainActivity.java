@@ -1,9 +1,11 @@
 package com.example.simplecalculatorapp_areeba;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView title,inputText, displayResult, history, calculator_History;
     Button advance_basic;
 
-    ScrollView scrollViewHistory;
+    ImageButton info;
 
     private String input = "";
     private ArrayList<String> expression = new ArrayList<>(); // Stores numbers and operators
@@ -48,8 +50,15 @@ public class MainActivity extends AppCompatActivity {
         history = findViewById(R.id.history);
         calculator_History = findViewById(R.id.calculatorHistory);
 
-        //Scrollview History
-        scrollViewHistory = findViewById(R.id.scrollableHistory);
+        //Image Button
+        info = findViewById(R.id.info);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent informationActivity = new Intent(MainActivity.this, InfoActivity.class);
+                startActivity(informationActivity);
+            }
+        });
 
         //Button
         advance_basic = findViewById(R.id.advance_basic);
@@ -65,16 +74,37 @@ public class MainActivity extends AppCompatActivity {
                     title.setText(R.string.my_calculator_advance);
                     advance_basic.setText(R.string.basic_calculator_with_out_history);
                     history.setText(R.string.history);
-                    scrollViewHistory.setVisibility(View.VISIBLE);
+                    calculator_History.setVisibility(View.VISIBLE);
                     switchToAdvance = false;
+
+                    history.setTextColor(getResources().getColor(R.color.splashScreen));
                 }
 
                 else{
                     title.setText(R.string.my_calculator_basic);
                     advance_basic.setText(R.string.advance_calculator_with_history);
                     history.setText(R.string.no_history);
-                    scrollViewHistory.setVisibility(View.GONE);
+                    calculator_History.setVisibility(View.GONE);
                     switchToAdvance = true;
+                }
+            }
+        });
+        //History Screen
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!switchToAdvance){
+                    // Get the history formatted string
+                    String history = calculator.formatHistory();
+
+                    Intent historyActivity = new Intent(MainActivity.this, ViewFullHistory.class);
+
+                    // Pass the history string using putExtra
+                    historyActivity.putExtra("calculation_history", history);
+
+                    startActivity(historyActivity);
+
+                    Log.d("TEXT", "onClick: CLICKABLE TEXT");
                 }
             }
         });
@@ -159,7 +189,8 @@ public class MainActivity extends AppCompatActivity {
                         //History
                         String fullExpression = input + " = " + result; // Combine input and result
                         calculator.calculationHistory.add(fullExpression); // Add to history
-                        calculator_History.setText(calculator.formatHistory()); // Update history TextView
+                       // calculator_History.setText(calculator.formatHistory()); // Update history TextView
+                        calculator_History.setText(calculator.getLastTwoValuesFormatted());
                     }
 
                     expression.clear(); // Clear for the next calculation
